@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1761771934492,
+      "tag": "0000_common_lily_hollister",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1761772336241,
+      "tag": "0001_slimy_skaar",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1761779034533,
+      "tag": "0002_large_post",
+      "breakpoints": true
+    }
+  ]
+}

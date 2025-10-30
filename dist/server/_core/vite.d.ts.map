@@ -1,0 +1,1 @@
+{"version":3,"file":"vite.d.ts","sourceRoot":"","sources":["../../../server/_core/vite.ts"],"names":[],"mappings":"AAAA,OAAgB,EAAE,KAAK,OAAO,EAAE,MAAM,SAAS,CAAC;AAEhD,OAAO,EAAE,KAAK,MAAM,EAAE,MAAM,MAAM,CAAC;AAMnC,wBAAsB,SAAS,CAAC,GAAG,EAAE,OAAO,EAAE,MAAM,EAAE,MAAM,iBAuC3D;AAED,wBAAgB,WAAW,CAAC,GAAG,EAAE,OAAO,QAiBvC"}

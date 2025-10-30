@@ -1,8 +1,8 @@
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
-import { InsertUser, users, adLocations, InsertAdLocation, landlords, InsertLandlord, clients, InsertClient, structures, InsertStructure } from "../drizzle/schema";
-import { ENV } from './_core/env';
+import { InsertUser, users, adLocations, InsertAdLocation, landlords, InsertLandlord, clients, InsertClient, structures, InsertStructure } from "../drizzle/schema.js";
+import { ENV } from './_core/env.js';
 
 let _db: ReturnType<typeof drizzle> | null = null;
 

@@ -1,12 +1,12 @@
-import { systemRouter } from "./_core/systemRouter";
-import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
+import { systemRouter } from "./_core/systemRouter.js";
+import { publicProcedure, protectedProcedure, router } from "./_core/trpc.js";
 import { z } from "zod";
-import * as db from "./db";
-import { photoDocumentation, InsertAdLocation, InsertLandlord, InsertClient, InsertStructure } from "../drizzle/schema";
+import * as db from "./db.js";
+import { photoDocumentation, InsertAdLocation, InsertLandlord, InsertClient, InsertStructure } from "../drizzle/schema.js";
 import { eq, desc } from "drizzle-orm";
-import { getDb } from "./db";
-import { estimateAdPrice, generateQuote, predictRenewalLikelihood } from "./ai";
-import * as deepseek from "./deepseek";
+import { getDb } from "./db.js";
+import { estimateAdPrice, generateQuote, predictRenewalLikelihood } from "./ai.js";
+import * as deepseek from "./deepseek.js";
 
 // Validation schemas
 const adLocationSchema = z.object({

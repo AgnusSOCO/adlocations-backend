@@ -1,11 +1,11 @@
 export declare const appRouter: import("@trpc/server").TRPCBuiltRouter<{
-    ctx: import("./_core/context").TrpcContext;
+    ctx: import("./_core/context.js").TrpcContext;
     meta: object;
     errorShape: import("@trpc/server").TRPCDefaultErrorShape;
     transformer: false;
 }, import("@trpc/server").TRPCDecorateCreateRouterOptions<{
     system: import("@trpc/server").TRPCBuiltRouter<{
-        ctx: import("./_core/context").TrpcContext;
+        ctx: import("./_core/context.js").TrpcContext;
         meta: object;
         errorShape: import("@trpc/server").TRPCDefaultErrorShape;
         transformer: false;
@@ -31,7 +31,7 @@ export declare const appRouter: import("@trpc/server").TRPCBuiltRouter<{
         }>;
     }>>;
     auth: import("@trpc/server").TRPCBuiltRouter<{
-        ctx: import("./_core/context").TrpcContext;
+        ctx: import("./_core/context.js").TrpcContext;
         meta: object;
         errorShape: import("@trpc/server").TRPCDefaultErrorShape;
         transformer: false;
@@ -60,7 +60,7 @@ export declare const appRouter: import("@trpc/server").TRPCBuiltRouter<{
         }>;
     }>>;
     adLocations: import("@trpc/server").TRPCBuiltRouter<{
-        ctx: import("./_core/context").TrpcContext;
+        ctx: import("./_core/context.js").TrpcContext;
         meta: object;
         errorShape: import("@trpc/server").TRPCDefaultErrorShape;
         transformer: false;
@@ -185,7 +185,7 @@ export declare const appRouter: import("@trpc/server").TRPCBuiltRouter<{
         }>;
     }>>;
     landlords: import("@trpc/server").TRPCBuiltRouter<{
-        ctx: import("./_core/context").TrpcContext;
+        ctx: import("./_core/context.js").TrpcContext;
         meta: object;
         errorShape: import("@trpc/server").TRPCDefaultErrorShape;
         transformer: false;
@@ -290,7 +290,7 @@ export declare const appRouter: import("@trpc/server").TRPCBuiltRouter<{
         }>;
     }>>;
     clients: import("@trpc/server").TRPCBuiltRouter<{
-        ctx: import("./_core/context").TrpcContext;
+        ctx: import("./_core/context.js").TrpcContext;
         meta: object;
         errorShape: import("@trpc/server").TRPCDefaultErrorShape;
         transformer: false;
@@ -405,7 +405,7 @@ export declare const appRouter: import("@trpc/server").TRPCBuiltRouter<{
         }>;
     }>>;
     structures: import("@trpc/server").TRPCBuiltRouter<{
-        ctx: import("./_core/context").TrpcContext;
+        ctx: import("./_core/context.js").TrpcContext;
         meta: object;
         errorShape: import("@trpc/server").TRPCDefaultErrorShape;
         transformer: false;
@@ -513,7 +513,7 @@ export declare const appRouter: import("@trpc/server").TRPCBuiltRouter<{
         }>;
     }>>;
     deepseek: import("@trpc/server").TRPCBuiltRouter<{
-        ctx: import("./_core/context").TrpcContext;
+        ctx: import("./_core/context.js").TrpcContext;
         meta: object;
         errorShape: import("@trpc/server").TRPCDefaultErrorShape;
         transformer: false;
@@ -607,7 +607,7 @@ export declare const appRouter: import("@trpc/server").TRPCBuiltRouter<{
         }>;
     }>>;
     photoDocumentation: import("@trpc/server").TRPCBuiltRouter<{
-        ctx: import("./_core/context").TrpcContext;
+        ctx: import("./_core/context.js").TrpcContext;
         meta: object;
         errorShape: import("@trpc/server").TRPCDefaultErrorShape;
         transformer: false;
@@ -645,7 +645,7 @@ export declare const appRouter: import("@trpc/server").TRPCBuiltRouter<{
         }>;
     }>>;
     ai: import("@trpc/server").TRPCBuiltRouter<{
-        ctx: import("./_core/context").TrpcContext;
+        ctx: import("./_core/context.js").TrpcContext;
         meta: object;
         errorShape: import("@trpc/server").TRPCDefaultErrorShape;
         transformer: false;

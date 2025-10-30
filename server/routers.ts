@@ -2,7 +2,7 @@ import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
 import { z } from "zod";
 import * as db from "./db";
-import { photoDocumentation } from "../drizzle/schema";
+import { photoDocumentation, InsertAdLocation, InsertLandlord, InsertClient, InsertStructure } from "../drizzle/schema";
 import { eq, desc } from "drizzle-orm";
 import { getDb } from "./db";
 import { estimateAdPrice, generateQuote, predictRenewalLikelihood } from "./ai";
@@ -88,7 +88,7 @@ export const appRouter = router({
     create: protectedProcedure
       .input(adLocationSchema)
       .mutation(async ({ input }) => {
-        return await db.createAdLocation(input);
+        return await db.createAdLocation(input as InsertAdLocation);
       }),
     update: protectedProcedure
       .input(z.object({
@@ -118,7 +118,7 @@ export const appRouter = router({
     create: protectedProcedure
       .input(landlordSchema)
       .mutation(async ({ input }) => {
-        return await db.createLandlord(input);
+        return await db.createLandlord(input as InsertLandlord);
       }),
     update: protectedProcedure
       .input(z.object({
@@ -148,7 +148,7 @@ export const appRouter = router({
     create: protectedProcedure
       .input(clientSchema)
       .mutation(async ({ input }) => {
-        return await db.createClient(input);
+        return await db.createClient(input as InsertClient);
       }),
     update: protectedProcedure
       .input(z.object({
@@ -183,7 +183,7 @@ export const appRouter = router({
     create: protectedProcedure
       .input(structureSchema)
       .mutation(async ({ input }) => {
-        return await db.createStructure(input);
+        return await db.createStructure(input as InsertStructure);
       }),
     update: protectedProcedure
       .input(z.object({
@@ -227,38 +227,38 @@ export const appRouter = router({
 
     predictMaintenance: protectedProcedure
       .input(z.object({
-        type: z.string(),
+        type: z.string().min(1),
         lastInspectionDate: z.date().optional(),
-        maintenanceStatus: z.string(),
+        maintenanceStatus: z.string().min(1),
         technicianNotes: z.string().optional(),
         age: z.number().optional(),
       }))
       .mutation(async ({ input }) => {
-        return await deepseek.predictMaintenance(input);
+        return await deepseek.predictMaintenance(input as any);
       }),
 
     generateEmail: protectedProcedure
       .input(z.object({
         purpose: z.enum(["quote", "renewal", "maintenance", "general"]),
-        clientName: z.string(),
+        clientName: z.string().min(1),
         locationDetails: z.string().optional(),
         additionalInfo: z.string().optional(),
       }))
       .mutation(async ({ input }) => {
-        return await deepseek.generateClientEmail(input);
+        return await deepseek.generateClientEmail(input as any);
       }),
 
     enhancedPricing: protectedProcedure
       .input(z.object({
-        address: z.string(),
-        type: z.string(),
+        address: z.string().min(1),
+        type: z.string().min(1),
         dimensions: z.string().optional(),
         visibility: z.string().optional(),
         traffic: z.string().optional(),
         demographics: z.string().optional(),
       }))
       .mutation(async ({ input }) => {
-        return await deepseek.enhancedPriceEstimation(input);
+        return await deepseek.enhancedPriceEstimation(input as any);
       }),
 
     assistant: protectedProcedure
@@ -293,9 +293,13 @@ export const appRouter = router({
         const database = await getDb();
         if (!database) throw new Error("Database not available");
         await database.insert(photoDocumentation).values({
-          ...input,
+          structureId: input.structureId,
+          photoType: input.photoType,
+          photoUrl: input.photoUrl,
+          caption: input.caption,
+          takenAt: input.takenAt,
           uploadedByUserId: ctx.user.id,
-        });
+        } as any);
         return { success: true };
       }),
   }),
@@ -305,44 +309,44 @@ export const appRouter = router({
     estimatePrice: protectedProcedure
       .input(
         z.object({
-          type: z.string(),
+          type: z.string().min(1),
           dimensions: z.string().optional(),
-          address: z.string(),
+          address: z.string().min(1),
           material: z.string().optional(),
           notes: z.string().optional(),
         })
       )
       .mutation(async ({ input }) => {
-        return await estimateAdPrice(input);
+        return await estimateAdPrice(input as any);
       }),
     generateQuote: protectedProcedure
       .input(
         z.object({
-          clientName: z.string(),
-          locationTitle: z.string(),
-          locationAddress: z.string(),
+          clientName: z.string().min(1),
+          locationTitle: z.string().min(1),
+          locationAddress: z.string().min(1),
           dimensions: z.string().optional(),
-          type: z.string(),
+          type: z.string().min(1),
           priceEstimate: z.number(),
           contractDuration: z.number(),
         })
       )
       .mutation(async ({ input }) => {
-        return await generateQuote(input);
+        return await generateQuote(input as any);
       }),
     predictRenewal: protectedProcedure
       .input(
         z.object({
-          clientName: z.string(),
-          paymentStatus: z.string(),
-          accountStatus: z.string(),
+          clientName: z.string().min(1),
+          paymentStatus: z.string().min(1),
+          accountStatus: z.string().min(1),
           contractStartDate: z.date(),
           contractEndDate: z.date(),
           rentAmount: z.number(),
         })
       )
       .mutation(async ({ input }) => {
-        return await predictRenewalLikelihood(input);
+        return await predictRenewalLikelihood(input as any);
       }),
   }),
 });

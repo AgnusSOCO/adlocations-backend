@@ -21,7 +21,7 @@ export const systemRouter = router({
       })
     )
     .mutation(async ({ input }) => {
-      const delivered = await notifyOwner(input);
+      const delivered = await notifyOwner(input as any);
       return {
         success: delivered,
       } as const;

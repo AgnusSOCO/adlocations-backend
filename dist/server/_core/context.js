@@ -1,5 +1,5 @@
-import { supabaseAdmin } from "./supabase";
-import * as db from "../db";
+import { supabaseAdmin } from "./supabase.js";
+import * as db from "../db.js";
 export async function createContext(opts) {
     let user = null;
     try {

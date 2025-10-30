@@ -1,4 +1,4 @@
-import { invokeLLM } from "./_core/llm";
+import { invokeLLM } from "./_core/llm.js";
 export async function estimateAdPrice(params) {
     const prompt = `You are an expert in outdoor advertising pricing. Estimate the monthly rental price for the following ad location:
 

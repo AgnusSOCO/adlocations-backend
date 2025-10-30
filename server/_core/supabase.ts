@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import { ENV } from './env';
+import { ENV } from './env.js';
 
 if (!ENV.supabaseUrl || !ENV.supabaseServiceRoleKey) {
   throw new Error('Missing Supabase environment variables. Please set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.');

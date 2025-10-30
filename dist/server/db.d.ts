@@ -1,5 +1,5 @@
 import postgres from "postgres";
-import { InsertAdLocation, InsertLandlord, InsertClient, InsertStructure } from "../drizzle/schema";
+import { InsertAdLocation, InsertLandlord, InsertClient, InsertStructure } from "../drizzle/schema.js";
 export declare function getDb(): Promise<import("drizzle-orm/postgres-js").PostgresJsDatabase<Record<string, unknown>> & {
     $client: postgres.Sql<{}>;
 }>;

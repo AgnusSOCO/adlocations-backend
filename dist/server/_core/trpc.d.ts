@@ -1,4 +1,4 @@
-import type { TrpcContext } from "./context";
+import type { TrpcContext } from "./context.js";
 export declare const router: import("@trpc/server").TRPCRouterBuilder<{
     ctx: TrpcContext;
     meta: object;

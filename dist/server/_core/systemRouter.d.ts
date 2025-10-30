@@ -1,5 +1,5 @@
 export declare const systemRouter: import("@trpc/server").TRPCBuiltRouter<{
-    ctx: import("./context").TrpcContext;
+    ctx: import("./context.js").TrpcContext;
     meta: object;
     errorShape: import("@trpc/server").TRPCDefaultErrorShape;
     transformer: false;

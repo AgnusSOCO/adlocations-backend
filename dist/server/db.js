@@ -1,8 +1,8 @@
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
-import { users, adLocations, landlords, clients, structures } from "../drizzle/schema";
-import { ENV } from './_core/env';
+import { users, adLocations, landlords, clients, structures } from "../drizzle/schema.js";
+import { ENV } from './_core/env.js';
 let _db = null;
 export async function getDb() {
     if (!_db && ENV.databaseUrl) {

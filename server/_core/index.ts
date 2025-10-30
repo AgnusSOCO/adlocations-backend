@@ -3,9 +3,9 @@ import express from "express";
 import { createServer } from "http";
 import net from "net";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
-import { appRouter } from "../routers";
-import { createContext } from "./context";
-import uploadRouter from "../upload";
+import { appRouter } from "../routers.js";
+import { createContext } from "./context.js";
+import uploadRouter from "../upload.js";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
